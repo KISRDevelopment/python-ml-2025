@@ -4,3 +4,4 @@ matplotlib
 seaborn
 jupyterlab
 scikit-learn
+jax
