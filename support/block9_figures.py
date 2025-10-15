@@ -21,8 +21,8 @@ p = np.linspace(0,1,100)
 ys0 = -np.log(1-p)
 ys1 = -np.log(p)
 
-ax.plot(xs, ys0, linestyle='-', linewidth=5, label='$y_i = 0$')
-ax.plot(xs, ys1, linestyle='-', linewidth=5, label='$y_i = 1$')
+ax.plot(p, ys0, linestyle='-', linewidth=5, label='$y_i = 0$')
+ax.plot(p, ys1, linestyle='-', linewidth=5, label='$y_i = 1$')
 
 ax.xaxis.set_tick_params(labelsize=14)  
 ax.yaxis.set_tick_params(labelsize=14)  
