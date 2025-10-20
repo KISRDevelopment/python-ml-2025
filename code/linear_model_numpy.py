@@ -126,3 +126,31 @@ def optimize(input_df, y, learning_rate, epochs):
     # Beta is the fitted parameter values
     return Beta
 
+# We will create little function that takes the training dataframe and the testing dataframe
+# and returns MSE on test
+def mvlr_train_test_function(train_df, test_df, input_cols, output_col):
+
+    # build the training input data frame
+    train_input_df = train_df[input_cols]
+
+    # build the training outputs
+    y = train_df[output_col].to_numpy()
+    
+    # Optimize the model using gradient descent
+    best_Beta = optimize(input_df = train_input_df,
+                         y = y,
+                         learning_rate = 0.1,
+                         epochs = 100)
+
+    # build the testing input data frame
+    test_input_df = test_df[input_cols]
+
+    # Make predictions on the test set
+    yhat = predict(Beta = best_Beta,
+                   input_df = test_input_df)
+    
+    # Calculate error of those predictions
+    ytest = test_df[output_col].to_numpy()
+    mse = np.mean(np.square(yhat - ytest))
+
+    return mse 
